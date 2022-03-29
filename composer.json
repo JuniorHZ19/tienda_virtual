@@ -9,10 +9,12 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
-        "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/sanctum": "^2.15",
+        "laravel/tinker": "^2.5",
+        "laravel/ui": "3.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.14",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
@@ -49,9 +51,10 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [ "barryvdh/laravel-ide-helper"]
         }
     },
+    
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
@@ -59,4 +62,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true
+    
 }

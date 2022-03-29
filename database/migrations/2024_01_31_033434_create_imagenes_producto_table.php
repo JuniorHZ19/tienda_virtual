@@ -14,10 +14,8 @@ class CreateImagenesProductoTable extends Migration
     public function up()
     {
         Schema::create('imagenes_producto', function (Blueprint $table) {
-            
+            $table->id();
             $table->string("imagen");
-           
-            
             $table->timestamps();
         });
     }

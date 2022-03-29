@@ -30,7 +30,7 @@ class producto extends Model
 
         return $this->belongsToMany(Venta::class,'detalles_venta','venta_cod','producto_id')
         ->withTimestamps()
-        ->withPivot(['cantidad','precio_unitario','fecha_compra']);
+        ->withPivot(['id','cantidad','precio_unitario','impuestos']);
 
     }
 

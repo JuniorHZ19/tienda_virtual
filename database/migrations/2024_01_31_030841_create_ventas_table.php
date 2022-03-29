@@ -15,12 +15,10 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id("cod");
-            $table->date("fecha_venta");
+          
             $table->string("estado_pago");
             $table->float("descuento");
-            $table->float("monto_final");
-
-            
+            $table->float("monto_final")->default(0.0);
 
             $table->timestamps();
         });

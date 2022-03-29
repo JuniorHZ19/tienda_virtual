@@ -15,10 +15,10 @@ class AddForeignKeyToDetallesVenta extends Migration
     {
         Schema::table('detalles_venta', function (Blueprint $table) {
             $table->unsignedBigInteger('venta_cod');
-            $table->foreign('venta_cod')->references('cod')->on('ventas');
+            $table->foreign('venta_cod')->references('cod')->on('ventas')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

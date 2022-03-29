@@ -17,7 +17,7 @@ class CreateEnviosTable extends Migration
             $table->id("cod_envio");
             $table->string("estado_envio");
             $table->date("fecha_envio");
-            $table->date("fecha_entrega");
+            $table->date("fecha_entrega")->default('0000-00-00 00:00:00');
 
            
             $table->timestamps();

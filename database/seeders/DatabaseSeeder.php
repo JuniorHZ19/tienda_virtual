@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
 
         cliente::factory()->count(10)->create();
 
-
         //$this->call(clienteSeeder::class);
     }
 }

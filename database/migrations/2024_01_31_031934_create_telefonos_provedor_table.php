@@ -14,6 +14,7 @@ class CreateTelefonosProvedorTable extends Migration
     public function up()
     {
         Schema::create('telefonos_provedor', function (Blueprint $table) {
+            $table->id();
             $table->string("telefono");
             
             $table->timestamps();

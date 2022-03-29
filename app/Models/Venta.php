@@ -11,6 +11,7 @@ class Venta extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'cod';
 
     public function envios(){
          
@@ -22,7 +23,7 @@ class Venta extends Model
 
         return $this->belongsToMany(Producto::class,'detalles_venta','venta_cod','producto_id')
                                  ->withTimestamps()
-                                 ->withPivot(['cantidad','precio_unitario','fecha_compra']);
+                                 ->withPivot(['id','cantidad','precio_unitario','impuestos']);
       }
   
 

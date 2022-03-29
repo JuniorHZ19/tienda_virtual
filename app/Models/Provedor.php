@@ -16,7 +16,7 @@ class provedor extends Model
 
       return $this->belongsToMany(Producto::class,'suministros','provedor_id','producto_id')
                                ->withTimestamps()
-                               ->withPivot(['fecha_suministro','cantidad','precio_unitario','estado','created_at','updated_at']);
+                               ->withPivot(['id','fecha_suministro','cantidad','precio_unitario','estado','created_at','updated_at']);
     }
 
     public function telefono_provedor(){

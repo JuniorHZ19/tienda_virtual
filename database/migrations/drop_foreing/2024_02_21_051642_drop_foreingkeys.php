@@ -124,10 +124,10 @@ class DropForeingkeys extends Migration
         Schema::table('users', function (Blueprint $table) {
         
             $table->unsignedBigInteger('rol_id');
-            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
 
         });
 
@@ -137,7 +137,7 @@ class DropForeingkeys extends Migration
             Schema::table('ventas', function (Blueprint $table) {
         
                 $table->unsignedBigInteger('cliente_id');
-                $table->foreign('cliente_id')->references('id')->on('clientes');  
+                $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');  
     
             });
 
@@ -147,7 +147,7 @@ class DropForeingkeys extends Migration
         Schema::table('telefonos_cliente', function (Blueprint $table) {
         
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');     
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');     
         
                 });
 
@@ -157,7 +157,7 @@ class DropForeingkeys extends Migration
         Schema::table('telefonos_provedor', function (Blueprint $table) {
         
             $table->unsignedBigInteger('provedor_id');
-            $table->foreign('provedor_id')->references('id')->on('provedores');  
+            $table->foreign('provedor_id')->references('id')->on('provedores')->onDelete('cascade')->onUpdate('cascade');  
     
             });
 
@@ -166,10 +166,10 @@ class DropForeingkeys extends Migration
         Schema::table('suministros', function (Blueprint $table) {
         
             $table->unsignedBigInteger('provedor_id');
-            $table->foreign('provedor_id')->references('id')->on('provedores');
+            $table->foreign('provedor_id')->references('id')->on('provedores')->onDelete('cascade')->onUpdate('cascade');
             
             $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
     
             });
 
@@ -178,7 +178,7 @@ class DropForeingkeys extends Migration
 
         Schema::table('productos', function (Blueprint $table) {
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
         });
 
 
@@ -186,10 +186,10 @@ class DropForeingkeys extends Migration
 
         Schema::table('detalles_venta', function (Blueprint $table) {
             $table->unsignedBigInteger('venta_cod');
-            $table->foreign('venta_cod')->references('cod')->on('ventas');
+            $table->foreign('venta_cod')->references('cod')->on('ventas')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
         });
 
         
@@ -197,7 +197,7 @@ class DropForeingkeys extends Migration
 
     Schema::table('envios', function (Blueprint $table) {
         $table->unsignedBigInteger('venta_cod');
-        $table->foreign('venta_cod')->references('cod')->on('ventas');
+        $table->foreign('venta_cod')->references('cod')->on('ventas')->onDelete('cascade')->onUpdate('cascade');
 
      
 });
@@ -206,7 +206,7 @@ class DropForeingkeys extends Migration
 
     Schema::table('imagenes_producto', function (Blueprint $table) {
         $table->unsignedBigInteger('producto_id');
-        $table->foreign('producto_id')->references('id')->on('productos');
+        $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
 
      
 });

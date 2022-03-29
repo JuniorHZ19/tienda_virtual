@@ -15,7 +15,7 @@ class AddForeignKeyToVentas extends Migration
     {
         Schema::table('ventas', function (Blueprint $table) {
            $table->unsignedBigInteger('cliente_id');
-           $table->foreign('cliente_id')->references('id')->on('clientes');
+           $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -9,10 +9,11 @@ use  App\Models\Venta;
 class Envio extends Model
 {
     use HasFactory;
-
+    protected $primaryKey="cod_envio";
+   
      public function venta()
      {
-
+        
         return $this->belongsTo(Venta::class,"Venta_cod");
      }
 }

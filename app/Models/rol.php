@@ -11,11 +11,13 @@ class rol extends Model
     use HasFactory;
 
     protected $table = 'roles';
-
+    
+    public $timestamps = false;
+    
      public function users()
      {
-
-        return $this->hasOne(user::class);
+       return $this->hasMany(rol::class);
+       
      }
    
 

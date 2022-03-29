@@ -16,10 +16,10 @@ class AddForeignKeyToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
 
             $table->unsignedBigInteger('rol_id');
-            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

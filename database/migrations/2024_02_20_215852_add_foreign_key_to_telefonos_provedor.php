@@ -15,7 +15,7 @@ class AddForeignKeyToTelefonosProvedor extends Migration
     {
         Schema::table('telefonos_provedor', function (Blueprint $table) {
             $table->unsignedBigInteger('provedor_id');
-            $table->foreign('provedor_id')->references('id')->on('provedores');
+            $table->foreign('provedor_id')->references('id')->on('provedores')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

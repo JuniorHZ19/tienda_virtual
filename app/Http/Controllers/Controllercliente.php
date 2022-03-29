@@ -11,17 +11,40 @@ class Controllercliente extends Controller
 
     public function index(){
         
-        
-    
-    
-       $producto=Provedor::find(1)->productos;
+       }
 
-       echo  $producto;
+       
+    public function show(){
+        
+    } 
+
+
+    
+    public function create(){
+        
+    } 
+       
+    public function store(){
+
+       }
+        
+
+    public function edit($id){
+        
+       } 
+      
+
+
+    public function update($request,$id){
       
        } 
       
-      
 
       
+    public function destroy($id){  
+    
+       }
+      
+
  
 }

@@ -14,13 +14,10 @@ class CreateDetallesVentaTable extends Migration
     public function up()
     {
         Schema::create('detalles_venta', function (Blueprint $table) {
+            $table->id();
             $table->integer("cantidad");
             $table->float("precio_unitario");
             $table->float("impuestos");
-            $table->date("fecha_compra");
-            
-            
-
             $table->timestamps();
         });
     }

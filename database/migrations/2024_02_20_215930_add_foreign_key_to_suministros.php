@@ -15,10 +15,10 @@ class AddForeignKeyToSuministros extends Migration
     {
         Schema::table('suministros', function (Blueprint $table) {
             $table->unsignedBigInteger('provedor_id');
-            $table->foreign('provedor_id')->references('id')->on('provedores');
+            $table->foreign('provedor_id')->references('id')->on('provedores')->onDelete('cascade')->onUpdate('cascade');
             
             $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

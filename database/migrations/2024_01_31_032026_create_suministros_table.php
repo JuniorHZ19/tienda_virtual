@@ -14,13 +14,13 @@ class CreateSuministrosTable extends Migration
     public function up()
     {
         Schema::create('suministros', function (Blueprint $table) {
+            $table->id();
             $table->date("fecha_suministro");
             $table->integer("cantidad");
             $table->float("precio_unitario");
             $table->string("estado");
 
              
-
             $table->timestamps();
         });
     }

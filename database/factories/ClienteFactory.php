@@ -14,6 +14,7 @@ class ClienteFactory extends Factory
      * @return array
      */
     protected $model=cliente::class;
+    
     public function definition()
     {
 
@@ -25,8 +26,8 @@ class ClienteFactory extends Factory
             'apellidos' => $this->faker->lastName,
             'documento' => $this->faker->unique()->numberBetween($min = 00000000, $max = 9999999),
             'direccion'=>$this->faker->address(),
-            'fecha_nacimiento'=>$this->faker->date('Y-m-d','now')
-            
+            'fecha_nacimiento'=>$this->faker->date('Y-m-d','now'),
+        
         ];
     }
 }

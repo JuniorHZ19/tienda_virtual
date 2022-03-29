@@ -12,6 +12,8 @@ class cliente extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre', 'precio', 'descripcion'];
+
     public function usuarios(){
          
         return $this->hasMany(user::class);
