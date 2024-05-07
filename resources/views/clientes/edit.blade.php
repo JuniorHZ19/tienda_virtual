@@ -38,7 +38,10 @@
   <label for="fecha_nacimiento">Fecha nacimiento:	:</label>
   <input type="date" name="fecha_nacimiento" class="form-control" value='{{$cliente->fecha_nacimiento}}'  >
 </div>
-
+<div class="form-group">
+  <label for="telefono">Telefono:	:</label>
+  <input type="text" name="telefono" class="form-control" value='{{$cliente->telefono}}' >
+</div>
 
   <button type="submit" class="btn btn-primary">Editar</button>
 

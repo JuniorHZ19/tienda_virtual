@@ -8,7 +8,7 @@ use App\models\Venta;
 use App\models\user;
 use App\models\Rol;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Hash;
 class UsuarioController extends Controller
 {
     /**
@@ -48,10 +48,16 @@ class UsuarioController extends Controller
     
         $usuario =new user();
         $usuario->nombre_usuario=$request->nombre_usuario;
-        $usuario->password=$request->password;
+        $usuario->password=Hash::make($request->input('password'));
         $usuario->correo=$request->correo;
         $usuario->rol_id=$request->rol_id;
         $usuario->cliente_id=$cliente_id;
+   
+
+        $filename=time().'.'.$request->file('foto')->extension();
+        $request->file('foto')->storeAs("/public/usuarios/".$cliente_id, $filename);
+        $usuario->foto="storage/usuarios/".$cliente_id."/".$filename;
+
         $usuario->save();
 
          return redirect()->route("usuarios.index",["cliente_id"=>$cliente_id]);
@@ -80,6 +86,7 @@ class UsuarioController extends Controller
         $roles=Rol::all();
         $usuario=user::find($usuario_id);
        
+       
         return view('usuarios.edit',compact('usuario','usuario_id','cliente_id','roles'));
 
     }
@@ -97,9 +104,28 @@ class UsuarioController extends Controller
         $usuario=user::find($usuario_id);
   
         $usuario->nombre_usuario=$request->nombre_usuario;
-        $usuario->password=$request->password;
+        $usuario->password=Hash::make($request->input('password'));
         $usuario->correo=$request->correo;
         $usuario->rol_id=$request->rol_id;
+
+     if($request->hasFile('foto'))
+        {
+          //eleiminar archivo :
+          
+          $fileToDelete = public_path($usuario->foto);
+     if(Storage::exists($fileToDelete))
+         { unlink($fileToDelete);}
+  
+          //rempelzar en la bd
+  
+  
+          $filename=time().'.'.$request->file('foto')->extension();
+          $request->file('foto')->storeAs("/public/usuarios/".$cliente_id, $filename);
+          $usuario->foto="storage/usuarios/".$cliente_id."/".$filename;
+  
+
+      }
+
 
         $usuario->save();
 

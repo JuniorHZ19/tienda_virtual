@@ -40,13 +40,14 @@ class provedorController extends Controller
 
         $request->validate([
          
-        "nombre_empresa"=>"required|max:30|min:10|unique",
-        "correo"=>"required|email|string|unique",
+        "nombre_empresa"=>"required|max:30|min:5|unique:provedores",
+        "correo"=>"required|email|string|unique:provedores",
         "estado"=>"required",
-        "descripcion"=>"required|max:4000|min:10|",
-        "RUC"=>"required|numeric|size:7",
-    
+        "descripcion"=>"required|max:4000|min:5|",
+        "RUC"=>"required|numeric|digits:7",
+        "telefono"=>"nullable|numeric|digits:7"    
        ],[
+        "RUC.unique"=>"Ya esta registrado el RUC",
          "RUC.required"=>"Es obligatorio el RUC",
          "RUC.size"=>"Es necesario que el RUC tenga 7 digitos",
          "nombre_empresa.required"=>"Especificar el nombre de empresa",
@@ -65,7 +66,7 @@ class provedorController extends Controller
         $provedor->correo=$request->input("correo");
         $provedor->estado=$request->input("estado");
         $provedor->descripcion=$request->input("descripcion");
-
+        $provedor->telefono=$request->input("telefono");
         $provedor->save();
         return redirect(route("provedores.index"));
     }
@@ -110,7 +111,7 @@ class provedorController extends Controller
         $provedor->correo=$request->input("correo");
         $provedor->estado=$request->input("estado");
         $provedor->descripcion=$request->input("descripcion");
-
+        $provedor->telefono=$request->input("telefono");
         $provedor->save();
         return redirect(route("provedores.index"));
         

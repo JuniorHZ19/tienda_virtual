@@ -39,14 +39,11 @@ Route::middleware(['auth:sanctum'])->group(function(){
 Route::get('/provedores',[ProvedorControllerApi::class, 'index']);
 
 
-
-
 //autentificacion usuario:
     
-Route::get('/user/login',[UserControllerApi::class, 'login']);
+Route::post('/user/login',[UserControllerApi::class, 'login']);
 
 Route::middleware(['auth:sanctum','RolesApi:administrador'])->post('/user/register',[UserControllerApi::class, 'register']);
-
 
 
 Route::middleware('auth:sanctum')->get('/user/perfil',[UserControllerApi::class, 'perfil']);

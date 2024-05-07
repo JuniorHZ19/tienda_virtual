@@ -14,10 +14,9 @@
       <th scope="col">#</th>
       <th scope="col">Nombre Usuario:</th>
       <th scope="col">Correo:</th>
-      <th scope="col">Password:</th>
       <th scope="col">Rol:</th>
       <th scope="col">Cliente:</th>
-
+      <th scope="col">Foto:</th>
   </tr>
   </thead>
   <tbody>
@@ -31,10 +30,10 @@
         <td> {{$usuario->id}}</td>
         <td scope="row">{{$usuario->nombre_usuario}}</td>
         <td scope="row">{{$usuario->correo}}</td>
-        <td scope="row">{{$usuario->password}}</td>
         <td scope="row">{{$usuario->rol->nombre}}</td>
 
         <td scope="row">{{$usuario->cliente->nombres}}</td>
+        <td scope="row"><img src="/{{$usuario->foto}}" width="70px" height="70px"/></td>
 
         @if(Session::get('user')->rol->nombre=="administrador")
         <td> <a href="{{url("/".$cliente_id."/"."usuarios/".$usuario->id."/edit")}}" class="btn btn-success">Editar</a></td>

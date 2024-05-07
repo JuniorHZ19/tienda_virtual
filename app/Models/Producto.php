@@ -8,6 +8,7 @@ use  App\Models\Provedor;
 use  App\Models\Categoria;
 use  App\Models\Venta;
 use  App\Models\Imagen_producto;
+use  App\Models\Caracteristica;
 class producto extends Model
 {
     use HasFactory;
@@ -34,9 +35,19 @@ class producto extends Model
 
     }
 
+    public function caracteristicas(){
+
+        return $this->belongsToMany(Caracteristica::class,'productos_caracteristicas','producto_id','caracteristicas_id')
+        ->withTimestamps()
+        ->withPivot(['id','info','producto_id','caracteristicas_id']);
+
+    }
+
 
     public function imagenes(){
 
         return $this->hasMany(Imagen_producto::class);
     }
+
+    
 }

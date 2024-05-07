@@ -44,7 +44,7 @@ class clienteController extends Controller
         $cliente->apellidos=$request->input("apellidos");
         $cliente->direccion=$request->input("direccion");
         $cliente->fecha_nacimiento=$request->input("fecha_nacimiento");
-
+        $cliente->telefono=$request->input("telefono");
         $cliente->save();
         return redirect(route("clientes.index"));
     }
@@ -89,7 +89,7 @@ class clienteController extends Controller
         $cliente->apellidos=$request->input("apellidos");
         $cliente->direccion=$request->input("direccion");
         $cliente->fecha_nacimiento=$request->input("fecha_nacimiento");
-
+        $cliente->telefono=$request->input("telefono");
         $cliente->save();
         return redirect(route("clientes.index"));
         

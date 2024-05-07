@@ -17,7 +17,7 @@
       <th scope="col">Correo:</th>
       <th scope="col">Estado:</th>
       <th scope="col">Descripcion:</th>
-      
+      <th scope="col">Telefono:</th>
     </tr>
   </thead>
   <tbody>
@@ -31,7 +31,7 @@
       <td>{{$provedor->correo}}</td>
       <td>{{$provedor->estado}}</td>
       <td>{{$provedor->descripcion}}</td>
-   
+      <td>{{$provedor->telefono}}</td>
       <td> <a href="{{url($provedor->id."/suministros")}}" class="btn btn-info">Suministros</a></td>
 
     @if(Session::get('user')->rol->nombre=="administrador")

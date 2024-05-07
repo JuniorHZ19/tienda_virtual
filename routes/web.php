@@ -15,6 +15,8 @@ use App\Http\Controllers\EnvioController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CaracteristicasController;
+use App\Http\Controllers\Caractersiticas_producto;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -28,6 +30,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('/', function () {
+  return view('login');
+});
 
 //home:
 Route::middleware('autorisacion')->get('/home',[LoginController::class,"home"])->name('home');
@@ -128,7 +133,11 @@ Route::middleware('roles:administrador,moderador')->group(function () {
  Route::put('/{cliente_id}/{venta_cod}/detalles_venta/{detalles_venta_id}', [DetalleVentaController::class,"update"])->name('detalles_venta.update');
  Route::delete('/{cliente_id}/{venta_cod}/detalles_venta/{detalles_venta_id}', [DetalleVentaController::class,"destroy"])->name('detalles_venta.destroy');
 
+
 });
+
+
+
 
 //envios:
 Route::middleware('roles:administrador,moderador')->group(function () {
@@ -166,6 +175,31 @@ Route::middleware('roles:administrador,moderador')->group(function () {
  Route::resource('productos',ProductoController::class);
 
 });
+
+//caracteristicas
+
+Route::get('/caracteristicas/create', [CaracteristicasController::class,"create"])->name('caracteristicas.create');
+Route::post('/caracteristicas',[CaracteristicasController::class,"store"])->name('caracteristicas.store');
+Route::get('/caracteristicas', [CaracteristicasController::class,"index"])->name('caracteristicas.index');
+
+Route::get('/caracteristicas/{id_caracteristica}/edit', [CaracteristicasController::class,"edit"])->name('caracteristicas.edit');
+Route::put('/caracteristicas/{id_caracteristica}', [CaracteristicasController::class,"update"])->name('caracteristicas.update');
+Route::delete('/caracteristicas/{id_caracteristica}', [CaracteristicasController::class,"destroy"])->name('caracteristicas.destroy');
+
+//caracteristicas_productos 
+
+Route::middleware('roles:administrador,moderador')->group(function () {
+  Route::get('/{producto_id}/caracteristicas_producto/create', [Caractersiticas_producto::class,"create"])->name('caracteristicas_producto.create');
+  Route::post('/{producto_id}/caracteristicas_producto',[Caractersiticas_producto::class,"store"])->name('caracteristicas_producto.store');
+  Route::get('/{producto_id}/caracteristicas_producto', [Caractersiticas_producto::class,"index"])->name('caracteristicas_producto.index');
+ 
+  Route::get('/{producto_id}/caracteristicas_producto/{caracteristica_producto_id}/edit', [Caractersiticas_producto::class,"edit"])->name('caracteristicas_producto.edit');
+  Route::put('/{producto_id}/caracteristicas_producto/{caracteristica_producto_id}', [Caractersiticas_producto::class,"update"])->name('caracteristicas_producto.update');
+  Route::delete('/{producto_id}/caracteristicas_producto/{caracteristica_producto_id}', [Caractersiticas_producto::class,"destroy"])->name('caracteristicas_producto.destroy');
+ 
+ });
+
+
 //Imagenes producto
 
  Route::get('/{id_producto}/imagenes_producto/create', [ImagenProductoController::class,"create"])->name('imagenes_producto.create');

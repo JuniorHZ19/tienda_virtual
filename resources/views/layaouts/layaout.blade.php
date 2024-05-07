@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
               <a class="navbar-brand" href="#">{{ config('app.name', 'Laravel') }}</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
               </button>
         
@@ -40,6 +40,11 @@
                   @if(Session::get('user')->rol->nombre=="administrador")
                   <li class="nav-item">
                     <a class="nav-link" href="{{route("roles.index")}}">Roles</a>
+                  </li>
+                  @endif
+                  @if(Session::get('user')->rol->nombre=="administrador")
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route("caracteristicas.index")}}">Caracteristicas</a>
                   </li>
                   @endif
 
@@ -78,7 +83,7 @@
     </div>
 
 
-    <footer>
+    <footer class="text-center">
         <p>Pie de Página &copy; {{ date('Y') }}</p>
         <!-- Puedes agregar información adicional en el pie de página -->
     </footer>

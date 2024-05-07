@@ -17,7 +17,7 @@
       <th scope="col">Precio Unitario:</th>
       <th scope="col">Estado:</th>
       <th scope="col">Fecha Suministro:</th>
-      
+
 
     </tr>
   </thead>
@@ -34,6 +34,7 @@
       <td scope="row">{{$suministro->pivot->precio_unitario}}</td>
       <td scope="row">{{$suministro->pivot->estado}}</td>
       <td scope="row">{{$suministro->pivot->fecha_suministro}}</td>
+  
 
       @if(Session::get('user')->rol->nombre=="administrador")
       <td> <a href="{{url("/".$provedor_id."/"."suministros/".$suministro->pivot->id."/edit")}}" class="btn btn-success">Editar</a></td>

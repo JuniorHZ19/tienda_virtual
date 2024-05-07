@@ -31,7 +31,10 @@
     <label for="fecha_nacimiento">Fecha nacimiento:	:</label>
     <input type="date" name="fecha_nacimiento" class="form-control" >
   </div>
-
+  <div class="form-group">
+    <label for="telefono">Telefono:	:</label>
+    <input type="text" name="telefono" class="form-control" >
+  </div>
 
 
   <button type="submit" class="btn btn-primary">Agregar</button>

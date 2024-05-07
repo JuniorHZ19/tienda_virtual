@@ -25,6 +25,10 @@
   <label for="correo">Correo:</label>
   <input type="email" name="correo" class="form-control"   value="{{$provedor->correo}}">
 </div>
+<div class="form-group">
+  <label for="telefono">Telefono:</label>
+  <input type="text" name="telefono" class="form-control"   value="{{$provedor->telefono}}">
+</div>
 
 <div class="form-group">
   <label for="estado">Selecionar Categoria:</label>
